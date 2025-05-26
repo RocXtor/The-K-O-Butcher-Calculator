@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Butchery Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <h1>Butchery Batch Calculator</h1>
+
+    <div class="role-toggle">
+      Role:
+      <select id="userRole" onchange="toggleRole()">
+        <option value="worker">Worker</option>
+        <option value="manager">Manager</option>
+      </select>
+    </div>
+
+    <div class="input-section">
+      <label>Beef (kg): <input type="number" id="beef" /></label>
+      <label>Chicken Hearts (kg): <input type="number" id="hearts" /></label>
+      <label>Tray Size (kg): <input type="number" id="trayWeight" value="0.35" /></label>
+      <label class="manager-only">Selling Price per Tray (M): <input type="number" id="pricePerTray" value="20" /></label>
+    </div>
+
+    <div class="price-section manager-only">
+      <h3>Ingredient Prices (M/kg)</h3>
+      <label>Beef: <input type="number" id="priceBeef" value="85.00" /></label>
+      <label>Hearts: <input type="number" id="priceHearts" value="45.00" /></label>
+      <label>Soya: <input type="number" id="priceSoya" value="29.06" /></label>
+      <label>Water: <input type="number" id="priceWater" value="0.00" /></label>
+      <label>Fat: <input type="number" id="priceFat" value="24.97" /></label>
+      <label>Spices: <input type="number" id="priceSpices" value="69.42" /></label>
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="saveBatch()">Save Batch</button>
+    <button onclick="loadBatch()">Load Batch</button>
+    <button class="manager-only" onclick="generatePDF()">Export as PDF</button>
+
+    <div id="results"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
